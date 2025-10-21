@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpmavcg5ol2qx"]
+
+[ext_resource type="Script" uid="uid://kdudtuykm4ch" path="res://cereja.gd" id="1_7t046"]
+[ext_resource type="SpriteFrames" uid="uid://gn7aout14vn" path="res://sprites/animacoes/cereja.tres" id="2_h5x3e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwpoo"]
+
+[node name="Cereja" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_7t046")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_h5x3e")
+animation = &"cereja"
+autoplay = "cereja"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_fwpoo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

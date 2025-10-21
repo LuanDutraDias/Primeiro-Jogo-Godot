@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1y1r3de2qb3y"]
+
+[ext_resource type="Script" uid="uid://ddedm3ine8lcs" path="res://gamba.gd" id="1_jpvk8"]
+[ext_resource type="SpriteFrames" uid="uid://bw1hqe08cuud7" path="res://sprites/animacoes/gamba.tres" id="1_rfet2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpvk8"]
+size = Vector2(26, 18)
+
+[node name="Gamba" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_jpvk8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_rfet2")
+animation = &"gamba"
+autoplay = "gamba"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_jpvk8")
+
+[node name="Direita" type="RayCast2D" parent="."]
+target_position = Vector2(26, 0)
+
+[node name="Esquerda" type="RayCast2D" parent="."]
+target_position = Vector2(-26, 0)
+
+[node name="Baixo Direita" type="RayCast2D" parent="."]
+position = Vector2(26, 0)
+
+[node name="Baixo Esquerda" type="RayCast2D" parent="."]
+position = Vector2(-26, 0)
